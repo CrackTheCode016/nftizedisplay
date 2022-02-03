@@ -1,0 +1,9 @@
+.nav {
+  background-color: #10c3fa;
+  /* width: 100%; */
+  padding: 8px;
+}
+
+.nav img {
+  max-width: 150px;
+}
