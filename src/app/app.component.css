@@ -113,6 +113,12 @@ app-footer {
   padding: 20px 80px 20px 80px;
 }
 
+button a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
 @media only screen and (max-width: 768px) {
   .assets {
     flex-direction: column;
