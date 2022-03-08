@@ -2,14 +2,19 @@
 
 
 <div class="counter">
-  <div class="counterbox">
-    <span class="amount">{{ assets.length }}</span>    
-    <span class="items">items registered on Symbol</span>
+  <div>
+    <div class="counterbox">
+      <span class="amount">{{ assets.length }}</span>    
+      <span class="items">items regsistered on Symbol</span>
+    </div>
+    <div class="counterbox">
+      <span class="amount">${{ totalPrice }}</span>    
+      <span class="items">value represented in this collection</span>
+    </div>
   </div>
   <h2>The first ever collection of digitally represented physical assets, built using Symbol technology.</h2>
   <h2>Each asset is a real, physical item registered as a transferrable Mosaic on Symbol.</h2>
 </div>
-
 <div class="assets">
   <div *ngFor="let asset of assets" class="itemcard">
     <div class="itemheader">
@@ -18,9 +23,10 @@
     <img [src]="asset.imageUrl">
     <p class="title">{{ asset.name }}</p>
     <p class="subtitle">{{ asset.description }}</p>
+    <p class="value">User Assigned Value: ${{ asset.value }}</p>
     <div class="itemdetails">
       <!-- <p class="verified">VERIFIED</p> -->
-      <span class="registered">REGISTERED ON: 01/01/2021</span>
+      <span class="registered">REGISTERED ON: {{ asset.time }}</span>
       <button class="view">
         <a href='https://testnet.symbol.fyi/namespaces/{{asset.id}}' target="_blank">VIEW ON SYMBOL</a>
       </button>

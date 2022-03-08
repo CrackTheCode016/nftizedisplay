@@ -28,7 +28,8 @@ export interface Asset {
   class: AssetClass;
   ownership: string;
   imageUrl: string;
-  price: string;
+  value: string;
+  time: string;
   description: string;
   authentictor?: string;
   id?: string;
@@ -90,10 +91,11 @@ export class AssetService {
       ),
       map((v, i) => {
         const asset: Asset = JSON.parse(v.metadataEntry.value);
-        console.log(i);
+        console.log(v.metadataEntry.value);
         if (asset.imageUrl == '')
           asset.imageUrl = '../assets/iodlt-light-transparent.png';
         asset.id = assetIds[i];
+        console.log(asset);
         return asset;
       }),
       toArray()

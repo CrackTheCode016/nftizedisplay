@@ -10,17 +10,21 @@ export class AppComponent {
   title = 'nftize-display';
 
   assets: Asset[] = [];
+  totalPrice: number = 0;
 
   constructor(private assetService: AssetService) {
     const account = Account.generateNewAccount(NetworkType.TEST_NET);
     console.log(account);
     const address = Address.createFromRawAddress(
-      'TAPSLSHJJ4JDOETSYUC7SXZKAZSIPFV6KSV6SVY'
+      'TCET6Q5L4PG4FUTOXCMPXQEBG4U243DNZLTKWYA'
     );
 
     assetService.viewAssetsForAccount(address).subscribe((assets) => {
       console.log(assets);
       this.assets = assets;
+      this.totalPrice = this.assets
+        .map((a) => parseInt(a.value))
+        .reduce((a, b) => a + b);
     });
   }
 }
