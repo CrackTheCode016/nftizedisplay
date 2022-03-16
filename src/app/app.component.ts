@@ -16,7 +16,7 @@ export class AppComponent {
     const account = Account.generateNewAccount(NetworkType.TEST_NET);
     console.log(account);
     const address = Address.createFromRawAddress(
-      'TCET6Q5L4PG4FUTOXCMPXQEBG4U243DNZLTKWYA'
+      'TC62UIG4FZXSVGT6FWJLARJ34XKSFVVYE34DZTQ'
     );
 
     assetService.viewAssetsForAccount(address).subscribe((assets) => {
