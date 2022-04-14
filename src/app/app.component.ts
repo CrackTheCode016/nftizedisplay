@@ -21,7 +21,7 @@ export class AppComponent {
 
     assetService.viewAssetsForAccount(address).subscribe((assets) => {
       console.log(assets);
-      this.assets = assets;
+      this.assets = assets.filter((a) => !a.value.includes(','));
       this.totalPrice = this.assets
         .map((a) => parseInt(a.value))
         .reduce((a, b) => a + b);
